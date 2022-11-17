@@ -23,6 +23,9 @@ app.get('/app/', (req, res) => {
 })
 
 app.get('/app/roll/', (req, res) => {
+    sides = 6
+    dice = 2 
+    rolls = 1
     res.send(roll(sides, dice, rolls))
 })
 
@@ -35,12 +38,15 @@ app.post('/app/roll/', (req, res) => {
 
 app.get('/app/roll/:sides/', (req, res) => {
     sides = parseInt(req.params.sides)
+    dice = 2
+    rolls = 1
     res.send(roll(sides, dice, rolls))
 })
 
 app.get('/app/roll/:sides/:dice/', (req, res) => {
     sides = parseInt(req.params.sides)
     dice = parseInt(req.params.dice) 
+    rolls = 1
     res.send(roll(sides, dice, rolls))
 })
 
