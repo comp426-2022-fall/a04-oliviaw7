@@ -22,10 +22,6 @@ app.get('/app/', (req, res) => {
     res.send("200 OK")
 })
 
-app.use(function(req, res) {
-    res.send("404 NOT FOUND")
-})
-
 app.get('/app/roll/', (req, res) => {
     res.send(roll(sides, dice, rolls))
 })
@@ -53,6 +49,10 @@ app.get('/app/roll/:sides/:dice/:rolls/', (req, res) => {
     dice = parseInt(req.params.dice) 
     rolls = parseInt(req.params.rolls)
     res.send(roll(sides, dice, rolls))
+})
+
+app.use(function(req, res) {
+    res.send("404 NOT FOUND")
 })
 
 app.listen(port)
